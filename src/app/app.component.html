@@ -1,0 +1,75 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{subject}}!
+  </h1>
+
+  <h1 [innerHTML]="subject"></h1>
+
+  <input #institute (keypress)="onClick(institute.value)" />
+  
+  <button (click)="onClick(institute.value)"> Click Me !</button>
+
+  
+  <h1>Institue is {{institute}} </h1>
+  <h1>Institue is {{institute1}} </h1>
+
+
+  <input [(ngModel)] = "tempKey" />
+
+  <h1>Temp Key is {{tempKey}}</h1>
+
+  <h1>
+    2 + 3 = {{ 2 + 3 }}
+
+  </h1>
+
+  <h1>
+    5 - 3 = {{ 5 - 3 }}
+
+  </h1>
+
+  <h1>
+    Subject Name : {{ getSubject() }}
+
+  </h1>
+
+  <h1>
+
+    Subjects in Lara : {{ subjects  }}
+  </h1>
+
+  <h1>
+    Customer is {{ customer | json}}
+
+  </h1>
+
+  <h1>
+
+    customer 1 is {{ customer1 | json}}
+  </h1>
+
+  <h1>
+    Customers : {{ customers | json}}
+
+  </h1>
+
+  <h1>
+    Customers : {{ isJavaLearningCenter ? 'Java Learning Center' : 'Not Defined'}}
+
+  </h1>
+
+
+  
+  
+
+
+  <img src="{{imgPath}}"/>
+
+  <img [src]="imgPath" />
+  
+  <img src="{{imgPath}}"/>
+
+  <img src="assets/images/1.png" />
+  
+</div>

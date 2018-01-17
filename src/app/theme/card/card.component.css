@@ -1,0 +1,10 @@
+:host{
+
+
+    font-size: 50px;
+
+    .span-block{
+        color: blue;
+    }
+
+}
