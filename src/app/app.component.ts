@@ -10,8 +10,27 @@ import { CustomerModel } from './customer.model';
 })
 export class AppComponent {
 
- name: string = "Hello World"
- address: string = "XYZ"
+  isJavaLearningCenter: boolean = true;
 
+  name: string = undefined;
+
+  customers : CustomerModel[] = [];
+
+  constructor(){
+  }
+
+  customer: {} = {
+    id: 1234,
+    name : "Gaurav"
+  }
+
+  toggle(){
+    this.isJavaLearningCenter = !this.isJavaLearningCenter;
+  }
+
+  isCustomersAvailable(){
+    console.log("is customers available called !")
+    return true;
+  }
 
 }
