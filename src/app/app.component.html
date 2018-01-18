@@ -1,64 +1,25 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
 
-  <ng-template [ngIf]="false" >
-    Java learning
+  <input #fruit> <button (click)="addFruit(fruit.value)"> Add Fruit</button> 
 
+  <h1 *ngFor="let fruit of fruits; let o = odd; let e = even; let i = index; let f = first; let l = last;">
+
+    First : {{f}} Last : {{l}} {{fruit}} Odd : {{o}} Even : {{e}}  <button (click)="removeFruit(i)">x</button>
+
+  </h1>
+
+
+  <ng-template ngFor let-fruit [ngForOf]="fruits" >
+    Property binding <h3>{{fruit}}</h3>
   </ng-template>
 
-  <!-- <ng-template [ngIf] = "isCustomersAvailable()">
-    Is Customer Available  
-  </ng-template> -->
-
-  <div *ngIf="isCustomersAvailable()">
-    Is Customer available!
-  </div>
-
-  <div *ngIf="customers?.length !=0; else customersNotAvailable;">
-    <h1>
-
-        {{customers | json}}
-    </h1>
-
-  </div>
-
-  <ng-template #customersNotAvailable>
-    <h1>You are running the business in loss</h1>
+  <ng-template *ngFor="let fruit of fruits">
+      Normal {{fruit}}
   </ng-template>
-  <h1 *ngIf="true">
-    If Block
-  </h1>
 
-  <h1 *ngIf="isJavaLearningCenter">
-    Java Learning Center
-  </h1>
-  <h1 *ngIf="!isJavaLearningCenter">
-    Not Defined
-  </h1>
+  <ng-template [ngIf]="fruits">
+    Fruits are available
+  </ng-template>
 
-  <h1 *ngIf="name">
-    Name is {{name}}
-  </h1>
-
-  <h1 *ngIf="customer && customer.id">
-    Customer is {{customer | json}}
-  </h1>
-  
-
-  <button (click)="toggle()">Toggle</button> 
-  
 </div>
-
-
-
-<h1 *ngIf="customer?.id; then customerIsDefinedBlock else customerIsNotDefinedBlock">
-    Customer is {{customer | json}}
-  </h1>
-
-<ng-template #customerIsDefinedBlock>
-  <h1> Customer is defined</h1>
-</ng-template>
-
-<ng-template #customerIsNotDefinedBlock>
-  <h1> Customer is not defined</h1>
-</ng-template>

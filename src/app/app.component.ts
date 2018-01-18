@@ -10,27 +10,15 @@ import { CustomerModel } from './customer.model';
 })
 export class AppComponent {
 
-  isJavaLearningCenter: boolean = true;
+  fruits: string[] = ['Apple', 'Litch', 'Watermelon']
 
-  name: string = undefined;
-
-  customers : CustomerModel[] = [];
-
-  constructor(){
+  addFruit(fruit){
+    this.fruits.push(fruit)
   }
 
-  customer: {} = {
-    id: 1234,
-    name : "Gaurav"
-  }
-
-  toggle(){
-    this.isJavaLearningCenter = !this.isJavaLearningCenter;
-  }
-
-  isCustomersAvailable(){
-    console.log("is customers available called !")
-    return true;
+  removeFruit(index){
+      console.log(index)
+      this.fruits.splice(index, 1)
   }
 
 }
