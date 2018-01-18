@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CourseModule } from './course.module';
@@ -21,7 +22,8 @@ import { ThemeModule } from './theme/theme.module';
     MatButtonModule,
     MatCardModule,
     ThemeModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
