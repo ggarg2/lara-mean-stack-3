@@ -5,7 +5,7 @@ import { CourseModule } from './course.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { AppComponent, DefaultCourse, MeanCourse, J2EECourse, JavaCourse } from './app.component';
 import { SubjectComponent } from './subject/subject.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
@@ -13,7 +13,11 @@ import { ThemeModule } from './theme/theme.module';
 @NgModule({
   declarations: [
     AppComponent,
-    SubjectComponent
+    SubjectComponent,
+    DefaultCourse,
+    MeanCourse,
+    J2EECourse,
+    JavaCourse
   ],
   imports: [
     BrowserModule,

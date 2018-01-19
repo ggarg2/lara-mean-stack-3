@@ -10,15 +10,51 @@ import { CustomerModel } from './customer.model';
 })
 export class AppComponent {
 
-  fruits: string[] = ['Apple', 'Litch', 'Watermelon']
+  course: string = "Java"
 
-  addFruit(fruit){
-    this.fruits.push(fruit)
+  openCourse(course){
+    this.course = course;
   }
 
-  removeFruit(index){
-      console.log(index)
-      this.fruits.splice(index, 1)
-  }
+}
+
+
+@Component({
+  selector: 'java-course',
+  template: `
+    <h1>This is a Java Course</h1>
+  `
+})
+export class JavaCourse{
+
+}
+
+@Component({
+  selector: 'j2ee-course',
+  template: `
+    <h1>This is a J2EE Course</h1>
+  `
+})
+export class J2EECourse{
+
+}
+
+@Component({
+  selector: 'mean-course',
+  template: `
+    <h1>This is a Mean Course</h1>
+  `
+})
+export class MeanCourse{
+
+}
+
+@Component({
+  selector: 'default-course',
+  template: `
+    <h1>This is a default Course</h1>
+  `
+})
+export class DefaultCourse{
 
 }

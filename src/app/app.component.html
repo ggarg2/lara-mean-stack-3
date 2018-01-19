@@ -1,25 +1,16 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
 
-  <input #fruit> <button (click)="addFruit(fruit.value)"> Add Fruit</button> 
+<button (click)="openCourse('Java')">Java</button>
+<button (click)="openCourse('J2EE')">J2EE</button>
+<button (click)="openCourse('Mean')">Mean</button>
+<button (click)="openCourse('aanything')">Default</button>
 
-  <h1 *ngFor="let fruit of fruits; let o = odd; let e = even; let i = index; let f = first; let l = last;">
-
-    First : {{f}} Last : {{l}} {{fruit}} Odd : {{o}} Even : {{e}}  <button (click)="removeFruit(i)">x</button>
-
-  </h1>
-
-
-  <ng-template ngFor let-fruit [ngForOf]="fruits" >
-    Property binding <h3>{{fruit}}</h3>
-  </ng-template>
-
-  <ng-template *ngFor="let fruit of fruits">
-      Normal {{fruit}}
-  </ng-template>
-
-  <ng-template [ngIf]="fruits">
-    Fruits are available
-  </ng-template>
+<div [ngSwitch]="course">
+  <java-course *ngSwitchCase="'Java'">Java Courses</java-course>
+  <j2ee-course *ngSwitchCase="'J2EE'">J2EE </j2ee-course>
+  <mean-course *ngSwitchCase="'Mean'">Mean</mean-course>
+  <default-course *ngSwitchDefault>Default</default-course>
+</div>
 
 </div>
