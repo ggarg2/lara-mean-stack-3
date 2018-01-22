@@ -1,16 +1,5 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<app-header></app-header>
 
-<button (click)="openCourse('Java')">Java</button>
-<button (click)="openCourse('J2EE')">J2EE</button>
-<button (click)="openCourse('Mean')">Mean</button>
-<button (click)="openCourse('aanything')">Default</button>
+<h1>Hello World</h1>
 
-<div [ngSwitch]="course">
-  <java-course *ngSwitchCase="'Java'">Java Courses</java-course>
-  <j2ee-course *ngSwitchCase="'J2EE'">J2EE </j2ee-course>
-  <mean-course *ngSwitchCase="'Mean'">Mean</mean-course>
-  <default-course *ngSwitchDefault>Default</default-course>
-</div>
-
-</div>
+<router-outlet></router-outlet>
