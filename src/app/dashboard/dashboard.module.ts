@@ -1,20 +1,16 @@
-import { SchedulingComponent } from './scheduling/scheduling.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
-import { MenuComponent } from './menu/menu.component';
-import { SchedulingModule } from './scheduling/scheduling.module';
-import { MenuModule } from './menu/menu.module';
 
 const routes: Routes = [
   { 
-    path : 'dashboard', 
+    path : '', 
     component : DashboardComponent,
     children: [
-      { path: '', redirectTo: 'menu', pathMatch: 'full'}
-      { path : 'menu', component: MenuComponent},
-      { path : 'scheduling', component: SchedulingComponent}
+      { path: '', redirectTo: 'menu', pathMatch: 'full'},
+      { path : 'menu', loadChildren: 'app/dashboard/menu/menu.module#MenuModule'},
+      { path : 'scheduling', loadChildren: 'app/dashboard/scheduling/scheduling.module#SchedulingModule'}    
     ]
   }
 ]
@@ -22,11 +18,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    SchedulingModule,
-    MenuModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [DashboardComponent],
-  exports: [DashboardComponent]
+  declarations: [DashboardComponent]
 })
 export class DashboardModule { }
