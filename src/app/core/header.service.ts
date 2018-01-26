@@ -20,7 +20,7 @@ export class HeaderService{
     },
     {
         displayName: 'Contact Us',
-        url : 'contact-us ',
+        url : 'contact-us',
         icon: 'settings_phone'
     },
     {
