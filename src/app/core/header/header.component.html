@@ -1,6 +1,11 @@
 <nav>
-  <a class="router-links" routerLinkActive="active-link" routerLink="home">Home</a> |
-  <a class="router-links" routerLinkActive="active-link" routerLink="login">Login</a> |
-  <a class="router-links" routerLinkActive="active-link" routerLink="contact-us">Contact Us</a> |
-  <a class="router-links" routerLinkActive="active-link" routerLink="dashboard">Dashboard</a>
+
+  <app-image-placeholder [imgUrl]="logoUrl" [width]="'80'" [height]="'80'"></app-image-placeholder>
+
+  <app-menu-item [displayItems]="menus"></app-menu-item>
+
+  {{testFunction()}}
+
+  <button (click)="testFunction()"> skhjh</button>
+
 </nav>
