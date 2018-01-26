@@ -1,12 +1,12 @@
 <mat-toolbar color="accent">
 
-    <button mat-button>
+    <button mat-button class="router-links" routerLinkActive="active-link" routerLink="home">
      
         <img src="../assets/images/logo1.png" widht="100" height="60"></button>
 
     <!-- This fills the remaining space of the current row -->
     <span class="fill-remaining-space"></span>
-    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm >
         <app-menu-item [displayItems]="menus"></app-menu-item>
         
     </div>
