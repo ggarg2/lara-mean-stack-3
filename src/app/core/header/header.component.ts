@@ -21,11 +21,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   }
 
-  testFunction(){
-    console.log("testFunction() called")
-  }
-
-
   ngOnDestroy(): void {
     console.log("ngOnDestroy() called")
   }

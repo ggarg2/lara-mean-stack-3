@@ -2,10 +2,16 @@
   dashboard works!
 </p>
 
+<mat-sidenav-container>
+    <mat-sidenav [opened]="true" mode="side">
+        <nav>
+          <a class="router-links" routerLinkActive="active-link" routerLink="menu">Menu</a> |
+          <a class="router-links" routerLinkActive="active-link" routerLink="scheduling">Scheduling</a> |
+        </nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 
-<nav>
-  <a class="router-links" routerLinkActive="active-link" routerLink="menu">Menu</a> |
-  <a class="router-links" routerLinkActive="active-link" routerLink="scheduling">Scheduling</a> |
-</nav>
 
-<router-outlet></router-outlet>
