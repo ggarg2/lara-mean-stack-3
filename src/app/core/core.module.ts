@@ -7,13 +7,23 @@ import { FlexLayoutModule} from '@angular/flex-layout';
 import { MenuItemComponent } from './menu-item/menu-item.component';
 import { ImagePlaceholderComponent } from './image-placeholder/image-placeholder.component';
 import { HeaderService } from './header.service';
-
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatMenuModule,
+    MatToolbarModule,
+    BrowserAnimationsModule
   ],
   declarations: [HeaderComponent, FooterComponent, MenuItemComponent, ImagePlaceholderComponent],
   exports: [HeaderComponent, FooterComponent],

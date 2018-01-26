@@ -1,3 +1,4 @@
 <ng-template ngFor let-item [ngForOf]="displayItems" >
-  <a class="router-links" routerLinkActive="active-link" routerLink="{{item.url}}">{{item.displayName}}</a>
+  
+  <button mat-button class="router-links" routerLinkActive="active-link" routerLink="{{item.url}}"><mat-icon>{{item.icon}}</mat-icon> {{item.displayName}}</button>
 </ng-template>

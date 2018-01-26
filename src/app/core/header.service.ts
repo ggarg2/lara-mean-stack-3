@@ -5,24 +5,30 @@ export class HeaderService{
     menus : any[] = [
     {
         displayName: 'Home',
-        url : 'home'
+        url : 'home',
+        icon:'home'
     },
     {
         displayName: 'Dashboard',
-        url : 'dashboard'
-    },
-    {
-        displayName: 'Contact Us',
-        url : 'contact-us '
-    },
-    {
-        displayName: 'Login',
-        url : 'login'
+        url : 'dashboard',
+        icon: 'dashboard'
     },
     {
         displayName: 'About US',
-        url : 'about-us'
+        url : 'about-us',
+        icon: 'supervisor_account'
     },
+    {
+        displayName: 'Contact Us',
+        url : 'contact-us ',
+        icon: 'settings_phone'
+    },
+    {
+        displayName: 'Login',
+        url : 'login',
+        icon: 'settings_power'
+    }
+    
 
     ]
 
