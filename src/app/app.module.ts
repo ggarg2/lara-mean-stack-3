@@ -14,6 +14,7 @@ const routes: Routes = [
   { path : 'login', loadChildren : 'app/login/login.module#LoginModule'},
   { path : 'contact-us', loadChildren: 'app/contact-us/contact-us.module#ContactUsModule'},
   { path : 'dashboard', loadChildren: 'app/dashboard/dashboard.module#DashboardModule'},
+  { path : 'registration', loadChildren: 'app/registration/registration.module#RegistrationModule'},
   { path : '**', component: PageNotFoundComponent}
 ]
 

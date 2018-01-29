@@ -27,6 +27,11 @@ export class HeaderService{
         displayName: 'Login',
         url : 'login',
         icon: 'settings_power'
+    },
+    {
+        displayName: 'Registration',
+        url : 'registration',
+        icon: 'settings_power'
     }
     
 
