@@ -1,107 +1,31 @@
 <div>
   <form (ngSubmit)="submitForm()" #myForm="ngForm">
-    <div ngModelGroup="userData" #userData="ngModelGroup">
-        <mat-form-field>
-          <input name="username" 
-          matInput 
-          placeholder="Please enter user name" 
-          ngModel
-          required
-          #username="ngModel"
-          />
-        <mat-error *ngIf="username.invalid">User is required.</mat-error>      
-        </mat-form-field>
-      
-        <mat-form-field>
-          <input name="emailId" matInput placeholder="Enter email id" 
-          required
-          email
-          ngModel
-          #emailId = "ngModel"
-          />
-          <mat-error *ngIf="emailId.errors?.required">Email id is required.</mat-error>            
-          <mat-error *ngIf="!emailId.errors?.required && emailId.errors?.email">Email id is not valid.</mat-error>            
-        </mat-form-field>
-    </div>
 
-    <mat-form-field>
-      <mat-select placeholder="Enter City"
-       [ngModel] = "cityName"
-        name="cityName" 
-      >
-        <mat-option [value]="'Bangalore'">
-          Bangalore
-        </mat-option>
-        <mat-option [value]="'Delhi'">
-          Delhi
-        </mat-option>
-        <mat-option [value]="'Chennai'">
-          Chennai
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+  <mat-form-field>
+    <input name="emailId" matInput placeholder="Enter email id" 
+    required
+    email
+    ngModel
+    #emailId = "ngModel"
+    />
+    <mat-error *ngIf="emailId.errors?.required">Email id is required.</mat-error>            
+    <mat-error *ngIf="!emailId.errors?.required && emailId.errors?.email">Email id is not valid.</mat-error>            
+  </mat-form-field>
 
-    <mat-form-field>
-      <textarea name="address" matInput placeholder="Enter Address" 
-      [(ngModel)]="address"
+  <mat-form-field>
+      <input name="password" 
+      matInput 
+      placeholder="Please enter password" 
+      ngModel
       required
-      #addressRef="ngModel"
-      ></textarea>
-                  
-    </mat-form-field>
-
-    Address is {{address}}
+      #password="ngModel"
+      />
+    <mat-error *ngIf="password.invalid">Password is required.</mat-error>      
+  </mat-form-field>
+    
 
     <button [disabled]="myForm.invalid" mat-raised-button type="submit">Submit</button> 
-    <button mat-raised-button (click)="setForm()">Set Form</button> 
-    <button mat-raised-button (click)="patchForm()">Patch Form</button> 
     <button mat-raised-button (click)="resetForm()" color="warn">Reset Form</button> 
   </form>
 </div>
 
-<!-- <br><br>
-
-<div>
-  <form (ngSubmit)="submitForm()" #myForm="ngForm">
-    
-      <input name="username" 
-       
-      placeholder="Please enter user name" 
-      ngModel
-      required
-      #username="ngModel"
-      />
-     <p *ngIf="username.invalid && username.touched">User is required.</p>      
-    
-  
-    
-      <input name="emailId"  placeholder="Enter email id" 
-      required
-      email
-      ngModel
-      #emailId = "ngModel"
-      />
-      <p *ngIf="emailId.touched && emailId.errors?.required">Email id is required.</p>            
-      <p *ngIf="emailId.touched && !emailId.errors?.required && emailId.errors?.email">Email id is not valid.</p>            
-    
-
-    
-      <select placeholder="Enter City"
-       [ngModel] = "cityName"
-        name="cityName" 
-      >
-        <option [value]="'Bangalore'">
-          Bangalore
-        </option>
-        <option [value]="'Delhi'">
-          Delhi
-        </option>
-        <option [value]="'Chennai'">
-          Chennai
-        </option>
-      </select>
-    
-
-    <button mat-raised-button type="submit">Submit</button> 
-  </form>
-</div> -->
