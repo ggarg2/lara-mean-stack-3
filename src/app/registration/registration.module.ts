@@ -9,7 +9,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 
 
-
 const routes: Routes = [{
   path: '', component: RegistrationComponent
 }]
