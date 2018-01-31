@@ -9,7 +9,6 @@ import * as Firebase from 'firebase';
 })
 export class AppComponent implements OnInit {
   
-  
   ngOnInit(): void {
     
     let config = {

@@ -1,11 +1,11 @@
 <div>
-  <form (ngSubmit)="submitForm()" #myForm="ngForm">
+  <form (ngSubmit)="signUpWithEmailAndPassword(user.email, user.password)" #myForm="ngForm">
 
   <mat-form-field>
     <input name="emailId" matInput placeholder="Enter email id" 
     required
     email
-    ngModel
+    [(ngModel)]="user.email"
     #emailId = "ngModel"
     />
     <mat-error *ngIf="emailId.errors?.required">Email id is required.</mat-error>            
@@ -16,7 +16,7 @@
       <input name="password" 
       matInput 
       placeholder="Please enter password" 
-      ngModel
+      [(ngModel)]="user.password"
       required
       #password="ngModel"
       />

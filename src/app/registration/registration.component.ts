@@ -1,5 +1,7 @@
 import { NgForm } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { UserModel } from '../models/user.model';
 
 @Component({
   selector: 'app-registration',
@@ -8,10 +10,16 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class RegistrationComponent  {
 
-  constructor() { }
+  user: UserModel = new UserModel();
 
-  signInWithEmailAndPassword(email, password){
+  constructor(private authService : AuthService){
     
+  }
+
+  signUpWithEmailAndPassword(email, password){
+    console.log("email is ",email)
+    console.log("password is ",password)
+    this.authService.signUpWithEmailAndPassword(email, password)
   }
     
   signInWithGoogle(){
