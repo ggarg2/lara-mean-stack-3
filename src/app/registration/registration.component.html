@@ -1,5 +1,5 @@
 <div>
-  <form (ngSubmit)="signUpWithEmailAndPassword(user.email, user.password)" #myForm="ngForm">
+  <form (ngSubmit)="validateCredentials(user.email, user.password)" #myForm="ngForm">
 
   <mat-form-field>
     <input name="emailId" matInput placeholder="Enter email id" 

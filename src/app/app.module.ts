@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AuthService } from './auth.service';
+import { AuthServiceImpl } from './auth.service';
 
 const routes: Routes = [
   { path : "", redirectTo: 'home', pathMatch: 'full'},
@@ -30,7 +30,7 @@ const routes: Routes = [
     CoreModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService],
+  providers: [AuthServiceImpl],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
