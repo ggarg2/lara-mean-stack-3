@@ -18,7 +18,7 @@ export class RegistrationComponent  {
   constructor(private authService : AuthServiceImpl, private router: Router){
   } 
 
-  private validateCredentials(email, password){
+  validateCredentials(email, password){
     this.validate(email, password)
     .then((response)=>{
       console.log(response)
