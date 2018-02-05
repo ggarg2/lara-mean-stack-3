@@ -15,8 +15,33 @@ export class RegistrationComponent  {
 
   user: UserModel = new UserModel();
 
+  address1: string;
+  address2: string;
+  modelChanged: Subject<{key, value}> = new Subject<{key, value}>();
+
+  data1 :{ address1, address2 } = { address1 : '', address2: ''};
+
+
+  // constructor(private authService : AuthServiceImpl, private router: Router){
+  // } 
+
   constructor(private authService : AuthServiceImpl, private router: Router){
+    this.modelChanged
+    .debounceTime(1000)     // wait 300ms after the last event before emitting last event
+    .distinctUntilChanged() // only emit if value is different from previous value
+    .subscribe(data => {
+      console.log("This.address ", this.address1)
+      console.log("address ", data.key)
+        console.log("old ",this.data1)
+        this.data1[data.key] = data.value;
+        console.log("new ",this.data1)   
+      });
   } 
+
+  changed(value: string, key) {
+    console.log("Hello Changed")
+    this.modelChanged.next({key: key, value: value});
+  }
 
   validateCredentials(email, password){
     this.validate(email, password)

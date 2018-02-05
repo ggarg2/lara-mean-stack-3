@@ -29,3 +29,7 @@
   </form>
 </div>
 
+<input [ngModel]='address1' (ngModelChange)="changed($event, 'address1')" />
+<input [ngModel]='address2' (ngModelChange)="changed($event, 'address2')" />
+
+
