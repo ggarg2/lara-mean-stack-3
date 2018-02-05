@@ -4,6 +4,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService, AuthServiceImpl } from '../auth.service';
 import { UserModel } from '../models/user.model';
 import * as Firebase from 'firebase';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-registration',
@@ -15,7 +16,6 @@ export class RegistrationComponent  {
   user: UserModel = new UserModel();
 
   constructor(private authService : AuthServiceImpl, private router: Router){
-    
   } 
 
   private validateCredentials(email, password){
@@ -104,5 +104,10 @@ export class RegistrationComponent  {
     
   signInWithGoogle(){
       
+  }
+
+  resetForm(myForm: NgForm){
+    console.log("Reset Form")
+    myForm.reset();
   }
 }

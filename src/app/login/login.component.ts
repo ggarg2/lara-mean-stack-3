@@ -4,6 +4,7 @@ import { AuthServiceImpl } from '../auth.service';
 import { Router } from '@angular/router';
 import { UserModel } from '../models/user.model';
 import * as Firebase from 'firebase';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -56,6 +57,11 @@ export class LoginComponent implements OnInit {
         console.log("While subscribing user info")
       }
     )
+  }
+
+  resetForm(myForm: NgForm){
+    console.log("Reset Form")
+    myForm.reset();
   }
 
 }
