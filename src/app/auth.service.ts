@@ -1,41 +1,48 @@
+import { Observable } from 'rxjs/Rx';
 import * as Firebase from 'firebase';
+import { from } from 'rxjs/observable/from';
 
 export interface AuthService{
 
-    userSignup(email, password);
+    //userSignup(email, password) : Promise<any>;
+    userSignup(email, password) : Observable<any>;
+    userSignIn(email, password) : Observable<any>;
+    inserUserInfo(user: Firebase.User);
 
 }
 
 export class AuthServiceImpl implements AuthService{
     
-    userSignup(email: any, password: any) {
-        this.signUpWithEmailAndPassword(email, password)
+    // userSignup(email: any, password: any) : Promise<any> {
+    //     return this.signUpWithEmailAndPassword(email, password)
+    // }
+
+    userSignup(email: any, password: any) : Observable<any> {
+        return this.signUpWithEmailAndPassword(email, password)
     }
 
-    private signUpWithEmailAndPassword(email, password){
-        
-        Firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(function(response: Firebase.User){
-            console.log(response)
-            let currentUser : Firebase.User = Firebase.auth().currentUser;
-            console.log("urrent user is ", currentUser.email)
-            console.log("urrent user is ", currentUser.displayName)
+    // private signUpWithEmailAndPassword(email, password): Promise<any>{
+    //     return Firebase.auth().createUserWithEmailAndPassword(email, password)
+    // }
 
-            currentUser.getIdToken(true).then( (token: string) => {
-                console.log("TOken is ", token )
-            }, (error : any) =>{
-                console.log(error)
-            } )
+    userSignIn(email, password) : Observable<any>{
+        return this.signInWithEmailAndPassword(email, password);
+    }
 
-            console.log("we got google firebase auth response")
+    inserUserInfo(user: Firebase.User){
+        this.storeUserInfo(user);
+    }
 
+    private signUpWithEmailAndPassword(email, password): Observable<any>{
+        return from(Firebase.auth().createUserWithEmailAndPassword(email, password))
+    }
 
-        }).catch(function(error){
-            console.log(error.message)
-        })
+    private signInWithEmailAndPassword(email, password): Observable<any>{
+        return from(Firebase.auth().signInWithEmailAndPassword(email, password))
+    }
 
-        console.log("Firebase is finished")
-
+    private storeUserInfo(user: Firebase.User){
+        console.log(user)
     }
 
     signInWithGoogle(){

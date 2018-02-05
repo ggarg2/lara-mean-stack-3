@@ -2,6 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 import { Routes, RouterModule } from '@angular/router';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: LoginComponent}
@@ -10,7 +15,12 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    FormsModule,
+    MatSelectModule
   ],
   declarations: [LoginComponent]
 })

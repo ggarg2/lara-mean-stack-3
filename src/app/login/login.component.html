@@ -1,3 +1,31 @@
-<p>
-  login works!
-</p>
+<div>
+  <form (ngSubmit)="loginWithUsernameAndPassword(user.email, user.password)" #myForm="ngForm">
+
+  <mat-form-field>
+    <input name="emailId" matInput placeholder="Enter email id" 
+    required
+    email
+    [(ngModel)]="user.email"
+    #emailId = "ngModel"
+    />
+    <mat-error *ngIf="emailId.errors?.required">Email id is required.</mat-error>            
+    <mat-error *ngIf="!emailId.errors?.required && emailId.errors?.email">Email id is not valid.</mat-error>            
+  </mat-form-field>
+
+  <mat-form-field>
+      <input name="password" 
+      matInput 
+      placeholder="Please enter password" 
+      [(ngModel)]="user.password"
+      required
+      #password="ngModel"
+      />
+    <mat-error *ngIf="password.invalid">Password is required.</mat-error>      
+  </mat-form-field>
+    
+
+    <button [disabled]="myForm.invalid" mat-raised-button type="submit">Login</button> 
+    <button mat-raised-button (click)="resetForm()" color="warn">Reset Form</button> 
+  </form>
+</div>
+
