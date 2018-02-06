@@ -21,6 +21,8 @@ export class LoginComponent implements OnInit {
   } 
 
   ngOnInit() {
+    this.authService.getToken()
+    this.authService.getUserDetail()
   }
 
   loginWithUsernameAndPassword(email, password){
@@ -29,6 +31,7 @@ export class LoginComponent implements OnInit {
         console.log(data)
         this.storeUserInfoSubscriber(data);
         console.log("loginWithUsernameAndPassword ends")
+        this.router.navigate(['home'])
       },
       error=>{
         console.log(error.msg)
