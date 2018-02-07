@@ -21,8 +21,7 @@ export class LoginComponent implements OnInit {
   } 
 
   ngOnInit() {
-    this.authService.getToken()
-    this.authService.getUserDetail()
+    this.authService.logout()
   }
 
   loginWithUsernameAndPassword(email, password){
@@ -54,6 +53,7 @@ export class LoginComponent implements OnInit {
       data =>{
         console.log("storeUserInfoSubscriber data")
         this.authService.inserUserInfo(data)
+        this.authService.onLoginEvent.emit(true)
         console.log("storeUserInfoSubscriber ends")
       },
       error =>{

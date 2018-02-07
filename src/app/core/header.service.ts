@@ -11,27 +11,36 @@ export class HeaderService{
     {
         displayName: 'Dashboard',
         url : 'dashboard',
-        icon: 'dashboard'
+        icon: 'dashboard',
+        isAuthRequired: true        
     },
     {
         displayName: 'About US',
         url : 'about-us',
-        icon: 'supervisor_account'
+        icon: 'supervisor_account'              
     },
     {
         displayName: 'Contact Us',
         url : 'contact-us',
-        icon: 'settings_phone'
+        icon: 'settings_phone'       
     },
     {
         displayName: 'Login',
         url : 'login',
-        icon: 'settings_power'
+        icon: 'settings_power',
+        isAuthRequired: false        
     },
     {
         displayName: 'Registration',
         url : 'registration',
-        icon: 'settings_power'
+        icon: 'settings_power',
+        isAuthRequired: false        
+    },
+    {
+        displayName: 'Logout',
+        url : 'login?isAuthRequired=true',
+        icon: 'settings_power',
+        isAuthRequired: true        
     }
     
 

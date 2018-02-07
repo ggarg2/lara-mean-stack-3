@@ -11,8 +11,8 @@ import { Subject } from 'rxjs';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
-export class RegistrationComponent  {
-
+export class RegistrationComponent implements OnInit  {
+  
   user: UserModel = new UserModel();
 
   address1: string;
@@ -37,6 +37,10 @@ export class RegistrationComponent  {
         console.log("new ",this.data1)   
       });
   } 
+
+  ngOnInit(): void {
+    this.authService.logout()
+  }
 
   changed(value: string, key) {
     console.log("Hello Changed")

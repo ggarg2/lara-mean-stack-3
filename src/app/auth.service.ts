@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Rx';
 import * as Firebase from 'firebase';
 import { from } from 'rxjs/observable/from';
 import { APP_CONSTANTS } from './util/app.constants';
+import { EventEmitter } from '@angular/core'
 
 export interface AuthService{
 
@@ -15,6 +16,8 @@ export interface AuthService{
     reloadTokenAndUserDetail();
     logout();
 
+    isAuthenticated(): boolean;
+
     refreshToken();
 
 }
@@ -24,6 +27,8 @@ export class AuthServiceImpl implements AuthService{
     public appConstants = APP_CONSTANTS;
     private token: string;
     private userDetail: UserDetail;
+
+    public onLoginEvent: EventEmitter<boolean> = new EventEmitter();
 
     // userSignup(email: any, password: any) : Promise<any> {
     //     return this.signUpWithEmailAndPassword(email, password)
@@ -73,6 +78,7 @@ export class AuthServiceImpl implements AuthService{
 
     private createUserDetail(user: Firebase.User){
         let userDetail : UserDetail = new UserDetail();
+        userDetail.uid = user.uid;
         userDetail.displayName = user.displayName;
         userDetail.emailId = user.email;
         userDetail.emailVerified = user.emailVerified;
@@ -123,6 +129,10 @@ export class AuthServiceImpl implements AuthService{
 
         //Students section
 
+    }
+
+    isAuthenticated(): boolean{
+        return this.token != null;
     }
 
 }

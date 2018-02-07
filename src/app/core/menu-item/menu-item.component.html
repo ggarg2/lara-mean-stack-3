@@ -1,4 +1,3 @@
 <ng-template ngFor let-item [ngForOf]="displayItems" >
-  
-  <button mat-button class="router-links" routerLinkActive="active-link" routerLink="{{item.url}}"><mat-icon>{{item.icon}}</mat-icon> {{item.displayName}}</button>
+  <button *ngIf="(item.isAuthRequired == undefined) || (item.isAuthRequired == isAuth)"  mat-button class="router-links" routerLinkActive="active-link" routerLink="{{item.url}}"><mat-icon>{{item.icon}}</mat-icon> {{item.displayName}}</button>
 </ng-template>
