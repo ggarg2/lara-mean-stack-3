@@ -1,10 +1,12 @@
 import { AuthServiceImpl } from '../../auth.service';
 import { Component, OnInit, Input } from '@angular/core';
+import { LogService } from '../../log.service';
 
 @Component({
   selector: 'app-menu-item',
   templateUrl: './menu-item.component.html',
-  styleUrls: ['./menu-item.component.css']
+  styleUrls: ['./menu-item.component.css'],
+  //providers: [ AuthServiceImpl ]
 })
 export class MenuItemComponent implements OnInit {
 
@@ -12,7 +14,9 @@ export class MenuItemComponent implements OnInit {
 
   isAuth: boolean = false;
 
-  constructor(private authservice : AuthServiceImpl) {
+  constructor(private authservice: AuthServiceImpl,
+  private logService:  LogService
+  ) {
 
     this.authservice.onLoginEvent.subscribe(
       (data: boolean)=>{
@@ -29,16 +33,9 @@ export class MenuItemComponent implements OnInit {
   }
 
   isAuthenticated(){
-    console.log("Is Authenticated Called !")
+    this.logService.log("Is Authenticated Called !")
+    this.logService.log("isAuthenticated " + this.authservice.isAuthenticated())
     this.isAuth = this.authservice.isAuthenticated();
-    console.log(this.displayItems)
-    for(let item of this.displayItems){
-
-      console.log("displayname ", item.displayname)
-      console.log("isAuthRequired ", item.isAuthRequired)
-
-
-    }
     //return this.authservice.isAuthenticated();
   }
 

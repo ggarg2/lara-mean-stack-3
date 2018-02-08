@@ -6,7 +6,8 @@ import * as Firebase from 'firebase';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  //providers: [ AuthServiceImpl ]
 })
 export class AppComponent implements OnInit {
   
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.reloadTokenAndUserDetail()
+    console.log("isAuthenticated ", this.authService.isAuthenticated())
   }
 
 }

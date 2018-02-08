@@ -7,6 +7,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
+import { AuthServiceImpl } from '../auth.service';
 
 const routes: Routes = [
   { path: '', component: LoginComponent}
@@ -22,6 +23,7 @@ const routes: Routes = [
     FormsModule,
     MatSelectModule
   ],
+  providers: [AuthServiceImpl],
   declarations: [LoginComponent]
 })
 export class LoginModule { }

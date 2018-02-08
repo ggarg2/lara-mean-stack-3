@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthServiceImpl } from './auth.service';
+import { LogService } from './log.service';
 
 const routes: Routes = [
   { path : "", redirectTo: 'home', pathMatch: 'full'},
@@ -30,7 +31,7 @@ const routes: Routes = [
     CoreModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthServiceImpl],
+  providers: [AuthServiceImpl, LogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

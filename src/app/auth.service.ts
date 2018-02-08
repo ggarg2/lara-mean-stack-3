@@ -3,7 +3,8 @@ import { Observable } from 'rxjs/Rx';
 import * as Firebase from 'firebase';
 import { from } from 'rxjs/observable/from';
 import { APP_CONSTANTS } from './util/app.constants';
-import { EventEmitter } from '@angular/core'
+import { EventEmitter, Injectable } from '@angular/core'
+import { LogService } from './log.service';
 
 export interface AuthService{
 
@@ -22,11 +23,16 @@ export interface AuthService{
 
 }
 
+@Injectable()
 export class AuthServiceImpl implements AuthService{
 
     public appConstants = APP_CONSTANTS;
     private token: string;
     private userDetail: UserDetail;
+
+    constructor(private logService: LogService){
+
+    }
 
     public onLoginEvent: EventEmitter<boolean> = new EventEmitter();
 
@@ -59,15 +65,15 @@ export class AuthServiceImpl implements AuthService{
     }
 
     private storeUserInfo(user: Firebase.User){
-        console.log(user)
+        this.logService.log(user)
         from(user.getIdToken(true)).subscribe(
             data =>{
-                console.log(data)
+                this.logService.log(data)
                 this.token = data;
                 this.storeValueInLocalStorage(this.appConstants.TOKEN, data);
             },
             error=>{
-                console.log(error)
+                this.logService.log(error)
             }
             
         )
@@ -105,11 +111,11 @@ export class AuthServiceImpl implements AuthService{
     }
 
     getToken(){
-        console.log("getToken ", this.token)
+        this.logService.log("getToken ", this.token)
         return this.token;
     }
     getUserDetail(){
-        console.log("getUserDetail ", this.userDetail)
+        this.logService.log("getUserDetail ", this.userDetail)
         return this.userDetail;
     }
 

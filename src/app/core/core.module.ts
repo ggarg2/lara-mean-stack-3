@@ -12,6 +12,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AuthServiceImpl } from '../auth.service';
 
 @NgModule({
   imports: [
@@ -27,6 +28,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   ],
   declarations: [HeaderComponent, FooterComponent, MenuItemComponent, ImagePlaceholderComponent],
   exports: [HeaderComponent, FooterComponent],
-  providers : [HeaderService]
+  providers : [HeaderService, AuthServiceImpl]
 })
 export class CoreModule { }
