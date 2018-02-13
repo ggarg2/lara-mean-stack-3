@@ -111,11 +111,11 @@ export class AuthServiceImpl implements AuthService{
     }
 
     getToken(){
-        this.logService.log("getToken ", this.token)
+        this.logService.log(this.token)
         return this.token;
     }
     getUserDetail(){
-        this.logService.log("getUserDetail ", this.userDetail)
+        this.logService.log(this.userDetail)
         return this.userDetail;
     }
 

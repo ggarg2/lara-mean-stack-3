@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardService } from '../dashboard.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dashboardService: DashboardService) { }
 
   ngOnInit() {
+  }
+
+  createMenu(){
+    this.dashboardService.createMenu();
+  }
+
+  updateMenu(){ 
+    this.dashboardService.updateMenu();
+  }
+
+  deleteMenu(){
+    this.dashboardService.deleteMenu();
+  }
+
+  getAllMenu(){
+    this.dashboardService.getAllMenu()
+  }
+
+  getMenuById(){
+    this.dashboardService.getMenuById()
   }
 
 }
