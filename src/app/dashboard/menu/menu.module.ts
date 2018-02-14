@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MenuComponent } from './menu.component';
 import { Routes, RouterModule } from '@angular/router';
 import { UtilModule } from '../../util/util.module';
+import { MatInputModule, MatFormFieldModule, MatButtonModule, MatSelectModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: MenuComponent}
@@ -12,6 +14,11 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    FormsModule,
+    MatSelectModule,
     UtilModule
   ],
   declarations: [MenuComponent]

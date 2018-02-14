@@ -1,3 +1,4 @@
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -9,6 +10,8 @@ import { CoreModule } from './core/core.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthServiceImpl } from './auth.service';
 import { LogService } from './log.service';
+import { CoreServices } from './util/core.service';
+import { AuthInterceptor } from './http-interceptor';
 
 const routes: Routes = [
   { path : "", redirectTo: 'home', pathMatch: 'full'},
@@ -17,6 +20,7 @@ const routes: Routes = [
   { path : 'contact-us', loadChildren: 'app/contact-us/contact-us.module#ContactUsModule'},
   { path : 'dashboard', loadChildren: 'app/dashboard/dashboard.module#DashboardModule'},
   { path : 'registration', loadChildren: 'app/registration/registration.module#RegistrationModule'},
+  { path : 'resource-not-found', component: PageNotFoundComponent},
   { path : '**', component: PageNotFoundComponent}
 ]
 
@@ -29,9 +33,14 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     CoreModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
-  providers: [AuthServiceImpl, LogService],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    AuthServiceImpl,
+    LogService,
+    CoreServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

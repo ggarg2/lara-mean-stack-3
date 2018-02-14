@@ -1,3 +1,43 @@
-<p>
-  menu works!
-</p>
+<div>
+  <form>
+  <mat-form-field>
+    <input name="name" matInput placeholder="Enter name" 
+    required
+    [(ngModel)]="menu.name"
+    #name = "ngModel"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input name="frontImg" matInput placeholder="Enter frontImg" 
+    required
+    [(ngModel)]="menu.frontImg"
+    #frontImg = "ngModel"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input name="rate" matInput placeholder="Enter rate" 
+    required
+    [(ngModel)]="menu.rate"
+    #rate = "ngModel"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input name="briefDesc" matInput placeholder="Enter briefDesc" 
+    required
+    [(ngModel)]="menu.briefDesc"
+    #briefDesc = "ngModel"
+    />
+  </mat-form-field>
+  <mat-form-field>
+      <input name="vendorName" 
+      matInput 
+      placeholder="Please enter vendorName" 
+      [(ngModel)]="menu.vendorName"
+      required
+      #vendorName="ngModel"
+      />
+  </mat-form-field>
+  <button mat-raised-button type="submit" (click)="createMenu(menu)">Create Menu</button> 
+  </form>
+</div>
+

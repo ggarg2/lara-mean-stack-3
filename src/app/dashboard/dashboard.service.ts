@@ -30,8 +30,8 @@ export class DashboardService{
         return this.coreServices.get(this.API_URL + DASHBOARD_CONSTANTS.FETCH_MENU_BY_ID + id, {})
     }
 
-    deleteMenu(): Observable<any>{
-        return this.coreServices.delete(this.API_URL + DASHBOARD_CONSTANTS.DELETE_MENU, {})
+    deleteMenu(id: string): Observable<any>{
+        return this.coreServices.delete(this.API_URL + DASHBOARD_CONSTANTS.DELETE_MENU + id, {})
     }
 
 }

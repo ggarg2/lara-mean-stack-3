@@ -5,5 +5,7 @@
 
 export const environment = {
   production: false,
-  API_URL: "http://localhost:8080/"
+  API_URL: "http://localhost:4200/assets/"
+  //API_URL: "https://my-proj12.firebaseio.com/"
+  
 };
