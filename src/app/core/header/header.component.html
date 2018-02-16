@@ -17,7 +17,7 @@
 
 </mat-toolbar>
 <mat-menu x-position="before" #menu="matMenu">
-    <app-menu-item [displayItems]="menus"></app-menu-item>
+    <app-menu-item [displayItems]="menus" (onVoted)="parentfunction($event)" (onTestEvent)="parentfunction($event)"></app-menu-item>
     
     <!--<button mat-menu-item>Help</button>-->
 </mat-menu>

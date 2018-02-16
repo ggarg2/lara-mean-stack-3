@@ -23,4 +23,10 @@ const routes: Routes = [
   ],
   declarations: [MenuComponent]
 })
-export class MenuModule { }
+export class MenuModule {
+
+    constructor(){
+      console.log("Menu Module called !!")
+    }
+
+ }

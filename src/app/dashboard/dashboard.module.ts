@@ -1,3 +1,4 @@
+import { AuthGuard } from '../auth-guard.service';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,7 +12,7 @@ const routes: Routes = [
     component : DashboardComponent,
     children: [
       { path: '', redirectTo: 'menu', pathMatch: 'full'},
-      { path : 'menu', loadChildren: 'app/dashboard/menu/menu.module#MenuModule'},
+      { path : 'menu', loadChildren: 'app/dashboard/menu/menu.module#MenuModule', canActivateChild: [AuthGuard]},
       { path : 'scheduling', loadChildren: 'app/dashboard/scheduling/scheduling.module#SchedulingModule'}    
     ]
   }

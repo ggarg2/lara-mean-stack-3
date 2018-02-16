@@ -75,4 +75,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   }
 
+  parentCalled(value){
+    console.log("Inside parent called")
+    console.log("value is ", value)
+  }
+
 }

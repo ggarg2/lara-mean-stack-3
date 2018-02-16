@@ -1,5 +1,5 @@
 import { AuthServiceImpl } from '../../auth.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { LogService } from '../../log.service';
 
 @Component({
@@ -11,6 +11,9 @@ import { LogService } from '../../log.service';
 export class MenuItemComponent implements OnInit {
 
   @Input() displayItems: any[];
+
+  @Output() onTestEvent: EventEmitter<any> = new EventEmitter();
+  @Output() onVoted = new EventEmitter<boolean>();
 
   isAuth: boolean = false;
 
@@ -37,6 +40,13 @@ export class MenuItemComponent implements OnInit {
     this.logService.log("isAuthenticated " + this.authservice.isAuthenticated())
     this.isAuth = this.authservice.isAuthenticated();
     //return this.authservice.isAuthenticated();
+  }
+
+  createEvents(){
+    console.log("Inside create events")
+    this.onTestEvent.emit({name: 'Mean'})
+    this.onVoted.emit(true)
+
   }
 
 }

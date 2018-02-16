@@ -1,3 +1,26 @@
-<p>
-  scheduling works!
-</p>
+<div>
+  <form [formGroup]="schedulingForm" (ngSubmit)="submitForm()">
+    <div formGroupName="userdata">
+      <mat-form-field>
+        <input formControlName="username" name="username" matInput placeholder="Enter username"
+        />
+        <mat-error *ngIf="schedulingForm.get('userdata.username').invalid">Username is required.</mat-error>            
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="email" name="email" matInput placeholder="Enter Email" 
+        />
+
+        <mat-error *ngIf="schedulingForm.get('userdata.email').errors?.required">Email id is required.</mat-error>            
+        <mat-error *ngIf="!schedulingForm.get('userdata.email').errors?.required && schedulingForm.get('userdata.email').errors?.email">Email id is not valid.</mat-error>            
+
+      </mat-form-field>
+    </div>
+    <mat-form-field>
+      <input formControlName="phoneNumber" name="phoneNumber" matInput placeholder="Enter phoneNumber"
+      />
+      <mat-error *ngIf="schedulingForm.get('phoneNumber').invalid">Phone Number is required.</mat-error>            
+    </mat-form-field>
+    <button mat-raised-button type="submit">Create Scheduling</button> 
+  </form>
+</div>
+

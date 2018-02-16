@@ -11,7 +11,11 @@ export class MenuComponent implements OnInit {
 
   menu: MenuItemModel = new MenuItemModel();
 
-  constructor(private dashboardService: DashboardService) { }
+  constructor(private dashboardService: DashboardService) {
+
+    console.log("Menu component is created")
+
+   }
 
   ngOnInit() {
     this.getAllMenu();

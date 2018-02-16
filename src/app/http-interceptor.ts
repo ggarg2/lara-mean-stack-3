@@ -28,11 +28,11 @@ export class AuthInterceptor implements HttpInterceptor{
                 console.log("error is ", error)
                 if(error.status == 401 || error.status == 403){
                     console.log("navigate user to the login page")
-                    this.router.navigate(['login'])
+                    //this.router.navigate(['login'])
                     //return Observable.empty();
                   }else if(error.status == 404){
                     console.log("navigate user to the resource not found page")          
-                    this.router.navigate(['resource-not-found'])  
+                    //this.router.navigate(['resource-not-found'])  
                     //return Observable.empty();                  
                 }
             }

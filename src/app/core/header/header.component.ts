@@ -24,5 +24,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     console.log("ngOnDestroy() called")
   }
+ 
+  parentfunction(value){
+    console.log("Inside parent function")
+    console.log("value is ", value)
+  }
 
 }

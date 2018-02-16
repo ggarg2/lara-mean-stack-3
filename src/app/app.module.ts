@@ -12,14 +12,16 @@ import { AuthServiceImpl } from './auth.service';
 import { LogService } from './log.service';
 import { CoreServices } from './util/core.service';
 import { AuthInterceptor } from './http-interceptor';
+import { AuthGuard } from './auth-guard.service';
+import { AuthGuard1 } from './auth-guard-1.service';
 
 const routes: Routes = [
   { path : "", redirectTo: 'home', pathMatch: 'full'},
-  { path : 'home', loadChildren : 'app/home/home.module#HomeModule'},
-  { path : 'login', loadChildren : 'app/login/login.module#LoginModule'},
-  { path : 'contact-us', loadChildren: 'app/contact-us/contact-us.module#ContactUsModule'},
-  { path : 'dashboard', loadChildren: 'app/dashboard/dashboard.module#DashboardModule'},
-  { path : 'registration', loadChildren: 'app/registration/registration.module#RegistrationModule'},
+  { path : 'home', loadChildren : 'app/home/home.module#HomeModule', canActivate: [AuthGuard, AuthGuard1] },
+  { path : 'login', loadChildren : 'app/login/login.module#LoginModule' , canActivate: [AuthGuard]},
+  { path : 'contact-us', loadChildren: 'app/contact-us/contact-us.module#ContactUsModule' , canActivate: [AuthGuard]},
+  { path : 'dashboard', loadChildren: 'app/dashboard/dashboard.module#DashboardModule' , canActivate: [AuthGuard]},
+  { path : 'registration', loadChildren: 'app/registration/registration.module#RegistrationModule' , canActivate: [AuthGuard]},
   { path : 'resource-not-found', component: PageNotFoundComponent},
   { path : '**', component: PageNotFoundComponent}
 ]
@@ -40,7 +42,8 @@ const routes: Routes = [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     AuthServiceImpl,
     LogService,
-    CoreServices],
+    CoreServices,
+    AuthGuard, AuthGuard1],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
