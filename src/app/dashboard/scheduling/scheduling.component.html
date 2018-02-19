@@ -20,6 +20,24 @@
       />
       <mat-error *ngIf="schedulingForm.get('phoneNumber').invalid">Phone Number is required.</mat-error>            
     </mat-form-field>
+
+    <div>
+        Hobbies: <button (click)="addHobbies()">Add Hobbies</button>
+
+        <div formArrayName="hobbies">
+          <h3>Your Hobbies:</h3>
+          <div *ngFor="let field of schedulingForm.get('hobbies').controls; let i=index">
+            <mat-form-field>
+              <input formControlName="{{i}}" name="field_{{i}}" matInput placeholder="Enter username"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+
+
+    </div>
+
+
     <button mat-raised-button type="submit">Create Scheduling</button> 
   </form>
 </div>
