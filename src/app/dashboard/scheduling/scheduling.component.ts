@@ -1,5 +1,8 @@
+import { Observable } from 'rxjs/Rx';
 import { AbstractControl, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-scheduling',
@@ -33,6 +36,19 @@ export class SchedulingComponent implements OnInit {
       this.createSchedulingForm({})
     }
 
+
+    this.schedulingForm.get("phoneNumber").valueChanges
+    .debounceTime(5000)
+    .subscribe(
+      data => {
+        console.error("data is ", data)
+      },
+      error => {
+        console.log(error)
+      }
+
+    )
+
   }
 
   createSchedulingForm(user){
@@ -40,7 +56,7 @@ export class SchedulingComponent implements OnInit {
       'id': new FormControl(user.id),
       'userdata': new FormGroup({
         'username': new FormControl(user.userName,  Validators.required),
-        'email' : new FormControl(user.emailId, [ Validators.required, Validators.email ]),
+        'email' : new FormControl(user.emailId, [ Validators.required, Validators.email ], [this.validateEmailId]),
       }),
       'hobbies': new FormArray([]),
       'phoneNumber' : new FormControl(user.phoneNumber, [ Validators.required, this.validatePhoneNumber.bind(this) ])
@@ -72,6 +88,33 @@ export class SchedulingComponent implements OnInit {
     }
 
     return null;
+  }
+
+
+  validateEmailId(control : FormControl) : Promise<any> | Observable<any>{
+
+    let emailId = control.value;
+    console.log("inside validateEmailId")
+    
+    return new Promise<any>(
+      (resolve, reject) => {
+        console.log("resolve and reject")
+        setTimeout(
+          () => {
+            if(emailId == "a@a.com"){
+              resolve({'emailAvailability' : true})
+            }else{
+              resolve(null)
+            }
+  
+          }, 10000
+
+
+        )
+         
+      }
+    )
+
   }
 
 }

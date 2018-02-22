@@ -12,6 +12,7 @@
 
         <mat-error *ngIf="schedulingForm.get('userdata.email').errors?.required">Email id is required.</mat-error>            
         <mat-error *ngIf="!schedulingForm.get('userdata.email').errors?.required && schedulingForm.get('userdata.email').errors?.email">Email id is not valid.</mat-error>            
+        <mat-error *ngIf="!schedulingForm.get('userdata.email').errors?.required && schedulingForm.get('userdata.email').errors?.emailAvailability">Email id is not available.</mat-error>            
 
       </mat-form-field>
     </div>
